@@ -18,31 +18,43 @@ public class Avatar {
 	}
 	
 	//REQUIREMENT : char direction must be capitalized.
+	//EDIT: I just realized try/catch doesn't do anything here since
+	//It's just integers and not actually moving anywhere on the array.
+	//Removed.
 	private void move(char direction) {
 		int movement = direction;
-		try {
-			switch(movement) {
-			//Direction = 'U'
-			case 85:
-				//x,y
-				yCoord -= 1;
-				break;
-			//Direction = 'D'
-			case 68:
-				//x,y
+		switch(movement) {
+		//Direction = 'U'
+		case 85:
+			//x,y
+			yCoord -= 1;
+			//If out of bounds, reverse the change.
+			if (yCoord <= -1 || yCoord >= 14) {
 				yCoord += 1;
-				break;
-			//Direction = 'R'
-			case 76:
-				xCoord -= 1;
-				break;
-			//Direction = 'L'
-			case 82:
-				xCoord += 1;
-				break;
 			}
-		} catch (Exception e) {
-			// No Changes
+			break;
+		//Direction = 'D'
+		case 68:
+			//x,y
+			yCoord += 1;
+			if (yCoord <= -1 || yCoord >= 14) {
+					yCoord -= 1;
+			}
+			break;
+		//Direction = 'R'
+		case 76:
+			xCoord -= 1;
+			if (xCoord <= -1 || xCoord >= 14) {
+					xCoord += 1;
+			}
+			break;
+		//Direction = 'L'
+		case 82:
+			xCoord += 1;
+			if (xCoord <= -1 || xCoord >= 14) {
+					xCoord -= 1;
+			}
+			break;
 		}
 	}
 	
