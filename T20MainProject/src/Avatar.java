@@ -1,7 +1,7 @@
 
 public class Avatar {
 	private String name = "DEF";
-	private int health = 1;
+	private int health = 3;
 	private int score = 0;
 	private int xCoord;
 	private int yCoord;
@@ -73,10 +73,10 @@ public class Avatar {
 		score += change;
 	}
 	
-	//Update Health: Based off of the other class, if the frog
-	//touches something lethal, 'change' should be negative.
+	//Update Health: 'change' should be a positive integer.
+	//Subtracts from the total amount of health (3)
 	private void updateHealth(int change) {
-		health += change;
+		health -= change;
 	}
 	
 	private int getHealth() {
